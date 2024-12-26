@@ -1,0 +1,15 @@
+/* Action Bar */
+
+#action-bar {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+}
+
+#clock {
+    font-family: Orbitron;
+}
