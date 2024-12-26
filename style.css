@@ -13,3 +13,11 @@
 #clock {
     font-family: Orbitron;
 }
+
+#add-btn, #delete-btn, #edit-btn, #filter-btn, #search-btn, #theme-btn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
