@@ -7,3 +7,8 @@ setInterval(() => {
 
     document.getElementById("clock").innerHTML = `${hours}:${minutes}:${seconds}`;
 }, 1000);
+
+// Add Task
+document.getElementById('add-btn').addEventListener('click' , () => {
+    document.getElementById('add-sidepopup').classList.add('open');
+})

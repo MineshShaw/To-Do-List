@@ -14,10 +14,47 @@
     font-family: Orbitron;
 }
 
-#add-btn, #delete-btn, #edit-btn, #filter-btn, #search-btn, #theme-btn {
+#add-btn, #delete-btn, #edit-btn, #filter-btn, #search-btn, #theme-btn, #clock {
     border: none;
     background-color: transparent;
     color: white;
     font-size: 15px;
     cursor: pointer;
+}
+
+/* Add Task Pop-Up */
+
+#task-title {
+    resize: none;
+}
+
+#task-title-input, #task-time-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    background-color: #2c2c2c;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+#add-sidepopup {
+    position: fixed;
+    right: -100%;
+    top: 10%;
+    width: fit-content;
+    max-width: 50%;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.3s;
+    max-height: 80vh;
+}
+
+#add-sidepopup.open {
+    right: 10px;
 }
