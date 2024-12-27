@@ -55,6 +55,6 @@
     max-height: 80vh;
 }
 
-#add-sidepopup.open {
+#add-sidepopup .open {
     right: 10px;
 }
