@@ -72,3 +72,41 @@ document.getElementsByClassName('main-cont')[0].addEventListener('click', (e) =>
         }
     }
 })
+
+// Filter
+
+let filterOn = false;
+
+document.getElementsByClassName('toolbox-priority-cont')[0].addEventListener('click', (e) => {
+    if (e.target.classList.contains('color')) {
+        if (e.target.classList.contains('activeFilter')) {
+            e.target.classList.remove('activeFilter');
+            removeFilters();
+        } else if (filterOn) {
+            document.getElementsByClassName('activeFilter')[0].classList.remove('activeFilter');
+            e.target.classList.add('activeFilter');
+            FilterTickets(e.target.classList[0]);
+        } else {
+            e.target.classList.add('activeFilter');
+            FilterTickets(e.target.classList[0]);
+        }
+    }
+})
+
+function removeFilters() {
+    Array.from(document.getElementsByClassName('ticket-cont')).forEach((element) => {
+        element.style.display = 'block';
+    })
+    filterOn = false;
+}
+
+function FilterTickets(ticketColor) {
+    filterOn = true;
+    Array.from(document.getElementsByClassName('ticket-cont')).forEach((element) => {
+        if (element.children[0].classList.contains(ticketColor)) {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    })
+}

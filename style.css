@@ -6,7 +6,9 @@
 
 #clock {
     font-family: Orbitron;
+    position: fixed;
     color: white;
+    right: 10%;
 }
 
 .toolbox-cont {
@@ -14,7 +16,7 @@
   background-color: #4b4b4b;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  width: 100%;
 }
 
 .toolbox-priority-cont {
@@ -70,9 +72,14 @@
 
 .main-cont {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
+}
+
+.task-area {
+  text-wrap: wrap;
 }
 
 .ticket-cont {
@@ -130,6 +137,6 @@
    align-items: center;
 }
 
-.active {
+.active, .activeFilter {
   border: solid 3px red;
 }
