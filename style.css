@@ -1,60 +1,135 @@
-/* Action Bar */
-
-#action-bar {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 50px;
-    background-color: #1c1c1c;
-    border-radius: 10px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 #clock {
     font-family: Orbitron;
-}
-
-#add-btn, #delete-btn, #edit-btn, #filter-btn, #search-btn, #theme-btn, #clock {
-    border: none;
-    background-color: transparent;
     color: white;
-    font-size: 15px;
-    cursor: pointer;
 }
 
-/* Add Task Pop-Up */
+.toolbox-cont {
+  height: 5rem;
+  background-color: #4b4b4b;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
-#task-title {
+.toolbox-priority-cont {
+  height: 3.5rem;
+  width: 18rem;
+  background-color: #3b3b3b;
+  margin-left: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.lightpink {
+  background-color: lightpink;
+}
+
+.lightgreen {
+  background-color: lightgreen;
+}
+
+.lightblue {
+  background-color: lightblue;
+}
+
+.black {
+  background-color: black;
+}
+
+.color {
+  height: 1.5rem;
+  width: 3rem;
+}
+
+/* action button container design */
+
+.action-btn-cont {
+  height: 3.5rem;
+  width: 8rem;
+  background-color: #3b3b3b;
+  margin-left: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.action-btn-cont > * {
+  width: 50%;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Ticket design */
+
+.main-cont {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.ticket-cont {
+  height: 12rem;
+  width: 15rem;
+  background-color: coral;
+  border-radius: 20px;
+  position: relative;
+}
+
+.ticket-color {
+  height: 1.5rem;
+  border-radius: 5px;
+}
+
+.ticket-id {
+  height: 1.8rem;
+  background-color: yellow;
+}
+
+.ticket-lock {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Pop Up Modal design */
+.modal-cont{
+  height:50vh ;
+  width:45vw ;
+  background-color: gray;
+  position: absolute;
+  top : 30%;
+  left : 27%;
+  display: none;
+}
+
+.textArea-cont{
+    height: 100%;
+    width: 70%;
     resize: none;
 }
 
-#task-title-input, #task-time-input {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
-    background-color: #2c2c2c;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
+.priority-color{
+    height: 3rem;
+    width: 5rem;
+    
 }
 
-#add-sidepopup {
-    position: fixed;
-    right: -100%;
-    top: 10%;
-    width: fit-content;
-    max-width: 50%;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    padding: 20px;
-    transition: 0.3s;
-    max-height: 80vh;
+.priority-colors-container{
+   width:30% ;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
 }
 
-#add-sidepopup .open {
-    right: 10px;
+.active {
+  border: solid 3px red;
 }

@@ -1,74 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanaban Board Class</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Sankofa+Display&display=swap" rel="stylesheet">
-    <title>To Do List</title>
-</head>
-<body>
-    <div id="action-bar">
-        <div id="add-btn">
-            <i class="fa-solid fa-plus"></i>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Toolbox (Navbar) -->
+    <div class="toolbox-cont">
+      <div class="toolbox-priority-cont">
+        <div class="lightpink color"></div>
+        <div class="lightgreen color"></div>
+        <div class="lightblue color"></div>
+        <div class="black color"></div>
+      </div>
+
+      <div class="action-btn-cont">
+        <div class="add-btn">
+          <i class="fa-solid fa-plus"></i>
         </div>
 
-        <div id="delete-btn">
-            <i class="fa-solid fa-trash"></i>
+        <div class="remove-btn">
+          <i class="fa-solid fa-trash"></i>
         </div>
+      </div>
 
-        <div id="edit-btn">
-            <i class="fa-solid fa-pen-to-square"></i>
-        </div>
-
-        <div id="filter-btn">
-            <i class="fa-solid fa-filter"></i>
-        </div>
-
-        <div id="search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-
-        <div id="theme-btn">
-            <i class="fa-solid fa-moon"></i>
-        </div>
-
-        <div id="clock"></div>
-    </div>
-    <div id="main">
-        <div id="task-list">
-            <div class="task-item">
-                <div class="task-title">
-                    <p>Task 1</p>
-                </div>
-            </div>
-            <div class="task-item">
-                <div class="task-title">
-                    <p>Task 2</p>
-                </div>
-            </div>
-        </div>        
+      <div id="clock"></div>
     </div>
 
-    <div id="add-sidepopup">
-        <div id="task-title-input">
-            <label>Task Title</label>
-            <textarea placeholder="Task Title" id="task-title"></textarea>
+    <!-- Task Ticket -->
+
+    <div class="main-cont">
+      <div class="ticket-cont">
+        <div class="ticket-color lightpink"></div>
+        <div class="ticket-id">ID</div>
+        <div class="task-area" contenteditable="false">Task</div>
+        <div class="ticket-lock">
+          <i class="fa-solid fa-lock"></i>
         </div>
-        <div id="task-time-input">
-            <label>Time (Optional)</label>
-            <input type="time" id="task-time">
-        </div>
-        <button id="add-task-btn">Add Task</button>
+      </div>
     </div>
 
-    <div id="filter-sidepopup">
-        
-    </div>
+    <!-- Modal Task Area -->
 
-</body>
-<script src="./script.js"></script>
+    <div class="modal-cont">
+        <textarea class="textArea-cont" placeholder="Enter Your Task"> </textarea>
+
+        <div class="priority-colors-container">
+            <div class="lightpink priority-color"></div>
+            <div class="lightgreen priority-color"></div>
+            <div class="lightblue priority-color"></div>
+            <div class="black priority-color active"></div>
+        </div>
+    </div>
+  </body>
+
+  <script src="./script.js"></script>
+  <script src="https://unpkg.com/shortid-dist@1.0.5/dist/shortid-2.2.13.min.js"></script>
 </html>
