@@ -1,3 +1,9 @@
+// Variables
+const clock = document.getElementById('clock');
+const addBtn = document.getElementsByClassName('add-btn')[0];
+const modalCont = document.getElementsByClassName('modal-cont')[0];
+const mainCont = document.getElementsByClassName('main-cont')[0];
+
 // clock
 setInterval(() => {
     const date = new Date();
@@ -5,22 +11,22 @@ setInterval(() => {
     const minutes = (date.getMinutes() < 10)? '0' + date.getMinutes() : date.getMinutes();
     const seconds = (date.getSeconds() < 10)? '0' + date.getSeconds() : date.getSeconds();
 
-    document.getElementById("clock").innerHTML = `${hours}:${minutes}:${seconds}`;
+    clock.innerHTML = `${hours}:${minutes}:${seconds}`;
 }, 1000);
 
 // Add Task
-document.getElementsByClassName('add-btn')[0].addEventListener('click' , () => {
-    document.getElementsByClassName('modal-cont')[0].style.display = (document.getElementsByClassName('modal-cont')[0].style.display == 'flex')? 'none' : 'flex';
+addBtn.addEventListener('click' , () => {
+    modalCont.style.display = (modalCont.style.display == 'flex')? 'none' : 'flex';
 })
 
 // Save Task
-document.getElementsByClassName('modal-cont')[0].addEventListener('keydown', (e) => {
+modalCont.addEventListener('keydown', (e) => {
     if (e.key == 'Shift') {
         const data = document.getElementsByClassName('textArea-cont')[0].value;
         const id = shortid();
         const ticketColor = document.getElementsByClassName('active')[0].classList[0];
         createTicket(ticketColor, data, id);
-        document.getElementsByClassName('modal-cont')[0].style.display = 'none';
+        modalCont.style.display = 'none';
     }
 })
 
@@ -40,7 +46,7 @@ function createTicket(ticketColor, data, id) {
     +'<div class="ticket-lock">'
     +'<i class="fa-solid fa-lock"></i>'
     +'</div>'
-    document.getElementsByClassName('main-cont')[0].appendChild(ticket);
+    mainCont.appendChild(ticket);
 }
 
 // Delete Task
@@ -52,7 +58,7 @@ document.getElementsByClassName('remove-btn')[0].addEventListener('click', () =>
     document.getElementsByClassName('fa-trash')[0].style.color = (deleteMode)? 'red' : 'white';
 })
 
-document.getElementsByClassName('main-cont')[0].addEventListener('click', (e) => {
+mainCont.addEventListener('click', (e) => {
     if (deleteMode && e.target.classList.contains('ticket-cont')) {
         e.target.remove();
     }
@@ -60,7 +66,7 @@ document.getElementsByClassName('main-cont')[0].addEventListener('click', (e) =>
 
 // Editing Tasks
 
-document.getElementsByClassName('main-cont')[0].addEventListener('click', (e) => {
+mainCont.addEventListener('click', (e) => {
     if (e.target.classList.contains('fa-lock') || e.target.classList.contains('fa-lock-open')) {
         e.target.parentElement.parentElement.children[2].contentEditable = (e.target.parentElement.parentElement.children[2].contentEditable == 'true')? 'false' : 'true';
         if (e.target.classList.contains('fa-lock')) {
@@ -70,8 +76,19 @@ document.getElementsByClassName('main-cont')[0].addEventListener('click', (e) =>
             e.target.classList.remove('fa-lock-open');
             e.target.classList.add('fa-lock');
         }
+    } else if (e.target.classList.contains('ticket-color')) {
+        changeTicketColor(e.target);
     }
-})
+});
+
+function changeTicketColor(e) {
+    const list = ['lightpink','lightgreen','lightblue','black'];
+    let index = list.findIndex(element => {return element == e.classList[1]});
+    index++;
+    index %= 4;
+    e.classList.remove(e.classList[1]);
+    e.classList.add(list[index]);
+}
 
 // Filter
 
@@ -110,3 +127,18 @@ function FilterTickets(ticketColor) {
         }
     })
 }
+
+// Change Theme
+
+document.getElementsByClassName('theme-mode-btn')[0].addEventListener('click', (element) => {
+    let e = element.target;
+    if (e.classList[1] == 'fa-moon') {
+        document.body.style.backgroundColor = '#4b4b4b';
+        e.classList.remove('fa-moon');
+        e.classList.add('fa-sun');
+    } else {
+        document.body.style.backgroundColor = 'white';
+        e.classList.remove('fa-sun');
+        e.classList.add('fa-moon');
+    }
+})
