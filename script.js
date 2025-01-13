@@ -133,7 +133,7 @@ document.getElementsByClassName('toolbox-priority-cont')[0].addEventListener('cl
 
 function removeFilters() {
     Array.from(document.getElementsByClassName('ticket-cont')).forEach((element) => {
-        element.style.display = 'block';
+        element.style.display = 'flex';
     })
     filterOn = false;
 }
@@ -142,7 +142,7 @@ function FilterTickets(ticketColor) {
     filterOn = true;
     Array.from(document.getElementsByClassName('ticket-cont')).forEach((element) => {
         if (element.children[0].classList.contains(ticketColor)) {
-            element.style.display = 'block';
+            element.style.display = 'flex';
         } else {
             element.style.display = 'none';
         }
