@@ -80,14 +80,20 @@
 
 .task-area {
   text-wrap: wrap;
+  width: 90%;
+  align-self: center;
+  margin-bottom: 35px;
 }
 
 .ticket-cont {
-  height: 12rem;
+  min-height: 12rem;
+  max-height: fit-content;
   width: 15rem;
   background-color: coral;
   border-radius: 20px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .ticket-color {
@@ -99,6 +105,7 @@
 .ticket-id {
   height: 1.8rem;
   background-color: yellow;
+  text-align: center;
 }
 
 .ticket-lock {
