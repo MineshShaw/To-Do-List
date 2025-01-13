@@ -92,7 +92,8 @@
 
 .ticket-color {
   height: 1.5rem;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .ticket-id {
