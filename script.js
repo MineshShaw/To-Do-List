@@ -3,6 +3,7 @@ const clock = document.getElementById('clock');
 const addBtn = document.getElementsByClassName('add-btn')[0];
 const modalCont = document.getElementsByClassName('modal-cont')[0];
 const mainCont = document.getElementsByClassName('main-cont')[0];
+let tickets = JSON.parse(localStorage.getItem('Tickets')) || [];
 
 // clock
 setInterval(() => {
@@ -27,6 +28,8 @@ modalCont.addEventListener('keydown', (e) => {
         const ticketColor = document.getElementsByClassName('active')[0].classList[0];
         createTicket(ticketColor, data, id);
         modalCont.style.display = 'none';
+        tickets.push({"id": id, "color": ticketColor, "data": data});
+        updateLocalStorage();
     }
 })
 
@@ -60,6 +63,12 @@ document.getElementsByClassName('remove-btn')[0].addEventListener('click', () =>
 
 mainCont.addEventListener('click', (e) => {
     if (deleteMode && e.target.classList.contains('ticket-cont')) {
+        tickets.forEach((element, index) => {
+            if (element.id == e.target.children[1].textContent) {
+                tickets.splice(index, 1);
+            }
+        })
+        updateLocalStorage()
         e.target.remove();
     }
 })
@@ -73,11 +82,23 @@ mainCont.addEventListener('click', (e) => {
             e.target.classList.remove('fa-lock');
             e.target.classList.add('fa-lock-open');
         } else {
+            tickets.forEach((element) => {
+                if (element.id == e.target.parentElement.parentElement.children[1].textContent) {
+                    element.data = e.target.parentElement.parentElement.children[2].textContent;
+                }
+            })
+            updateLocalStorage();
             e.target.classList.remove('fa-lock-open');
             e.target.classList.add('fa-lock');
         }
     } else if (e.target.classList.contains('ticket-color')) {
         changeTicketColor(e.target);
+        tickets.forEach((element) => {
+            if (element.id == e.target.parentElement.children[1].textContent) {
+                element.color = e.target.classList[1];
+            }
+        })
+        updateLocalStorage();
     }
 });
 
@@ -140,5 +161,19 @@ document.getElementsByClassName('theme-mode-btn')[0].addEventListener('click', (
         document.body.style.backgroundColor = 'white';
         e.classList.remove('fa-sun');
         e.classList.add('fa-moon');
+    }
+})
+
+// Local Storage
+
+function updateLocalStorage() {
+    localStorage.setItem('Tickets', JSON.stringify(tickets));
+}
+
+window.addEventListener('load', () => {
+    if (tickets) {
+        tickets.forEach((element) => {
+            createTicket(element.color, element.data, element.id);
+        })
     }
 })
