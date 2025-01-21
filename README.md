@@ -64,6 +64,6 @@ All tasks are saved in the browser’s local storage, ensuring they remain acces
 .
 ├── index.html         # HTML structure of the app
 ├── styles.css         # Styling for the application
-├── script.js             # Main JavaScript file containing the app logic
+├── script.js          # Main JavaScript file containing the app logic
 └── README.md          # Documentation file
 ```
