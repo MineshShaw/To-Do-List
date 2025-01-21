@@ -101,6 +101,7 @@
             updateLocalStorage();
         }
     });
+    
 
     function changeTicketColor(e) {
         const list = ['lightpink','lightgreen','lightblue','black'];
